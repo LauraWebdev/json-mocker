@@ -1,0 +1,63 @@
+.splitpanes.default-theme {
+    & .splitpanes__pane {
+        background-color: #262a31;
+    }
+    & .splitpanes__splitter{
+        background-color: #1e2126;
+        box-sizing:border-box;
+        position:relative;
+        flex-shrink:0;
+
+        &:before {
+            content:"";
+            position:absolute;
+            top:50%;
+            left:50%;
+            background-color:#363d45;
+            transition:background-color .3s;
+        }
+        &:hover:before {
+            background-color: #5d6a78;
+        }
+        &:first-child {
+            cursor:auto;
+        }
+    }
+    & .splitpanes {
+        & .splitpanes__splitter {
+            z-index: 1;
+        }
+    }
+    &.splitpanes--vertical, & .splitpanes--vertical {
+        & > .splitpanes__splitter {
+            width:7px;
+            border-left: 0;
+            margin-left:-1px;
+
+            &:before {
+                transform:translateY(-50%);
+                width:2px;
+                height:30px;
+            }
+            &:before {
+                margin-left:-1px;
+            }
+        }
+    }
+    &.splitpanes--horizontal, & .splitpanes--horizontal {
+        & > .splitpanes__splitter {
+            height:7px;
+            border-top: 0;
+            margin-top:-1px;
+
+            &:before {
+                transform:translate(-50%);
+                width:30px;
+                height:2px;
+            }
+            &:before {
+                margin-top:-1px;
+            }
+        }
+    }
+}

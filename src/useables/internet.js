@@ -1,0 +1,81 @@
+import {faker} from "@faker-js/faker";
+
+export default {
+    'userName': {
+        action: () => faker.internet.userName(),
+        group: 'Internet',
+        explanation: 'Returns a username',
+        usage: 'userName()',
+        example: faker.internet.userName(),
+    },
+    'password': {
+        action: () => faker.internet.password(),
+        group: 'Internet',
+        explanation: 'Returns a password',
+        usage: 'password()',
+        example: faker.internet.password(),
+    },
+    'url': {
+        action: () => faker.internet.url(),
+        group: 'Internet',
+        explanation: 'Returns an URL',
+        usage: 'url()',
+        example: faker.internet.url(),
+    },
+    'ipv4': {
+        action: () => faker.internet.ip(),
+        group: 'Internet',
+        explanation: 'Returns an IPv4',
+        usage: 'ipv4()',
+        example: faker.internet.ipv4(),
+    },
+    'ipv6': {
+        action: () => faker.internet.ipv6(),
+        group: 'Internet',
+        explanation: 'Returns an IPv6',
+        usage: 'ipv6()',
+        example: faker.internet.ipv6(),
+    },
+    'httpMethod': {
+        action: () => faker.internet.httpMethod(),
+        group: 'Internet',
+        explanation: 'Returns an HTTP method',
+        usage: 'httpMethod()',
+        example: faker.internet.httpMethod(),
+    },
+    'httpStatusCode': {
+        action: () => faker.internet.httpStatusCode(),
+        group: 'Internet',
+        explanation: 'Returns an HTTP status code',
+        usage: 'httpStatusCode()',
+        example: faker.internet.httpStatusCode(),
+    },
+    'port': {
+        action: () => faker.internet.port(),
+        group: 'Internet',
+        explanation: 'Returns a port',
+        usage: 'port()',
+        example: faker.internet.port(),
+    },
+    'protocol': {
+        action: () => faker.internet.protocol(),
+        group: 'Internet',
+        explanation: 'Returns a protocol',
+        usage: 'protocol()',
+        example: faker.internet.protocol(),
+    },
+    'userAgent': {
+        action: () => faker.internet.userAgent(),
+        group: 'Internet',
+        explanation: 'Returns a userAgent',
+        usage: 'userAgent()',
+        example: faker.internet.userAgent(),
+    },
+    'emoji': {
+        action: () => faker.internet.emoji(),
+        group: 'Internet',
+        explanation: 'Returns an emoji',
+        usage: 'emoji()',
+        example: faker.internet.emoji(),
+    },
+};

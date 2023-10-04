@@ -1,0 +1,81 @@
+import {faker} from "@faker-js/faker";
+
+export default {
+    'firstName': {
+        action: () => faker.person.firstName(),
+        group: 'Person',
+        explanation: 'Returns a first name',
+        usage: 'firstName()',
+        example: faker.person.firstName(),
+    },
+    'middleName': {
+        action: () => faker.person.middleName(),
+        group: 'Person',
+        explanation: 'Returns a middle name',
+        usage: 'middleName()',
+        example: faker.person.middleName(),
+    },
+    'lastName': {
+        action: () => faker.person.lastName(),
+        group: 'Person',
+        explanation: 'Returns a last name',
+        usage: 'lastName()',
+        example: faker.person.lastName(),
+    },
+    'fullName': {
+        action: () => faker.person.fullName(),
+        group: 'Person',
+        explanation: 'Returns a full name joined with a space',
+        usage: 'fullName()',
+        example: faker.person.fullName(),
+    },
+    'avatar': {
+        action: () => faker.image.avatarGitHub(),
+        group: 'Person',
+        explanation: 'Returns an URL to a user avatar',
+        usage: 'avatar()',
+        example: faker.image.avatarGitHub(),
+    },
+    'email': {
+        action: () => faker.internet.exampleEmail(),
+        group: 'Person',
+        explanation: 'Returns an email',
+        usage: 'email()',
+        example: faker.internet.exampleEmail(),
+    },
+    'gender': {
+        action: () => faker.person.gender(),
+        group: 'Person',
+        explanation: 'Returns a gender',
+        usage: 'gender()',
+        example: faker.person.gender(),
+    },
+    'sex': {
+        action: () => faker.person.sex(),
+        group: 'Person',
+        explanation: 'Returns a sex',
+        usage: 'sex()',
+        example: faker.person.sex(),
+    },
+    'jobTitle': {
+        action: () => faker.person.jobTitle(),
+        group: 'Person',
+        explanation: 'Returns a job title',
+        usage: 'jobTitle()',
+        example: faker.person.jobTitle(),
+    },
+    'bio': {
+        action: () => faker.person.bio(),
+        group: 'Person',
+        explanation: 'Returns a short biography',
+        usage: 'bio()',
+        example: faker.person.bio(),
+    },
+    'phoneNumber': {
+        action: () => faker.phone.number(),
+        group: 'Person',
+        explanation: 'Returns a phone number',
+        usage: 'phoneNumber()',
+        example: faker.phone.number(),
+    },
+};
