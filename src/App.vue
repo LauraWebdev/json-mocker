@@ -4,11 +4,7 @@
         @fileSave="fileSave"
         @fileOpen="fileOpen"
         @toggleUseables="showUseables = !showUseables"
-        @toggleSchema="showSchema = !showSchema"
-        @togglePreview="showPreview = !showPreview"
         :useablesActive="showUseables"
-        :schemaActive="showSchema"
-        :previewActive="showPreview"
     />
 
     <Splitpanes class="default-theme">
@@ -17,12 +13,10 @@
       />
       <SchemaPane
           ref="schemaPane"
-          v-if="showSchema"
           @schemaInput="(newSchema) => dataSchema = newSchema"
       />
       <PreviewPane
           ref="previewPane"
-          v-if="showPreview"
           :data="dataSchema"
       />
     </Splitpanes>
@@ -40,8 +34,6 @@ import PreviewPane from "./components/PreviewPane.vue";
 import TitleBar from "./components/TitleBar.vue";
 
 const showUseables = ref(true);
-const showSchema = ref(true);
-const showPreview = ref(true);
 
 const dataSchema = ref(`{}`);
 

@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import { Pane } from 'splitpanes';
 import {interpretUseables} from "../useables/index.js";
 import MButton from "./MButton.vue";

@@ -31,18 +31,10 @@
         :class="{'primary' : useablesActive}"
       />
       <MButton
-          @click="emit('toggleSchema')"
-          :icon="schemaActive ? 'eye-line' : 'eye-off-line'"
-          label="Schema"
+          @click="openGitHub"
+          icon="github-fill"
+          label="GitHub"
           class="small"
-          :class="{'primary' : schemaActive}"
-      />
-      <MButton
-          @click="emit('togglePreview')"
-          :icon="previewActive ? 'eye-line' : 'eye-off-line'"
-          label="Preview"
-          class="small"
-          :class="{'primary' : previewActive}"
       />
     </nav>
   </header>
@@ -73,7 +65,11 @@ defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
+
+const openGitHub = () => {
+  window.open('https://github.com/LauraWebdev/json-mocker', '_blank')
+};
 </script>
 
 <style lang="scss" scoped>
