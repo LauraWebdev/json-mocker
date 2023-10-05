@@ -6,12 +6,14 @@ import color from "./color.js";
 import finance from "./finance.js";
 import system from "./system.js";
 import location from "./location.js";
+import date from "./date.js";
 
 export const useablesMap = {
     ...general,
     ...text,
     ...person,
     ...internet,
+    ...date,
     ...location,
     ...finance,
     ...system,
@@ -38,7 +40,7 @@ export const executeUseable = (input) => {
         const useableName = useableMatch[1];
         const params = useableMatch[2] ? useableMatch[2].split(',').map(param => param.trim()) : [];
         if (useablesMap[useableName]) {
-            return useablesMap[useableName].action(...params);
+            return [useablesMap[useableName].action(...params), useablesMap[useableName].type ?? 'string'];
         }
     }
     return input;
@@ -77,21 +79,31 @@ export const interpretUseables = (inputObject) => {
         }
         return returnObject;
     } else if (typeof inputObject === 'string') {
-        const replaced = inputObject.replace(/{(.*?)}/g, (_, match) => executeUseable(match));
+        let type = null;
+        const replaced = inputObject.replace(/{(.*?)}/g, (fullMatch, match) => {
+            let [useableResult, useableType] = executeUseable(match);
 
-        // Restore bool, int and float values
-        if(replaced === "true") {
-            return true;
-        }
-        if(replaced === "false") {
-            return false;
-        }
-        // Edge case: Some UUIDs may be valid floats
-        if(!Number.isNaN(parseFloat(replaced)) && !replaced.match(/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/)) {
-            return parseFloat(replaced);
-        }
+            // Set type to useableType if the only value, otherwise set to string
+            if(inputObject === fullMatch) {
+                type = useableType.name;
+            } else {
+                type = String.name;
+            }
 
-        return replaced;
+            return useableResult;
+        });
+
+        // Return parsed to type
+        switch(type ?? String.name) {
+            default:
+                return replaced;
+            case Boolean.name:
+                return replaced === "true";
+            case Number.name:
+                return parseFloat(replaced);
+            case Date.name:
+                return new Date(replaced).toJSON();
+        }
     }
     return inputObject;
 }
