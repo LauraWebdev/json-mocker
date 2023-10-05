@@ -64,13 +64,6 @@ export default {
         usage: 'secondaryAddress()',
         example: faker.location.secondaryAddress(),
     },
-    'timeZone': {
-        action: () => faker.location.timeZone(),
-        group: 'Location',
-        explanation: 'Returns a timezone',
-        usage: 'timeZone()',
-        example: faker.location.timeZone(),
-    },
     'zipCode': {
         action: () => faker.location.zipCode(),
         group: 'Location',

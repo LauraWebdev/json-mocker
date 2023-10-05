@@ -56,4 +56,15 @@ export default {
         example: faker.number.int(),
         type: Number,
     },
+    'intRange': {
+        action: (min = null, max = null) => faker.number.int({
+            min: min ? parseInt(min) : undefined,
+            max: max ? parseInt(max) : undefined,
+        }),
+        group: 'General',
+        explanation: 'Returns an integer between a range',
+        usage: 'int(min, max)',
+        example: faker.number.int(),
+        type: Number,
+    },
 };
