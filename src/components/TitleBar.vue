@@ -76,11 +76,14 @@ const openGitHub = () => {
 header {
   height: 60px;
   background: #1e2126;
+  width: env(titlebar-area-width, 100%);
   display: grid;
   grid-template-columns: 1fr auto;
-  padding: 0 20px;
+  padding: 0 20px 0 calc(env(titlebar-area-x, 0px) + 20px);
   align-items: center;
   gap: 15px;
+  -webkit-app-region: drag;
+  app-region: drag;
 
   & .brand {
     font-size: 1.25rem;
@@ -96,6 +99,11 @@ header {
     display: flex;
     gap: 10px;
     align-items: center;
+
+    & button {
+      -webkit-app-region: no-drag;
+      app-region: no-drag;
+    }
   }
 }
 </style>
