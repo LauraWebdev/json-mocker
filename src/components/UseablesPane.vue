@@ -171,7 +171,6 @@ const updateResults = () => {
       display: grid;
       grid-template-columns: 1fr;
       gap: 0;
-      overflow-y: scroll;
 
       & button {
         appearance: none;
